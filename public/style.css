@@ -281,3 +281,39 @@ footer {
         font-size: 2.2rem;
     }
 }
+/* --- Estilos para Iconos Flotantes de Redes --- */
+.social-flotante {
+    position: fixed; /* Esto hace que flote */
+    bottom: 25px;    /* Distancia desde abajo */
+    right: 25px;     /* Distancia desde la derecha */
+    z-index: 1000;   /* Para que esté por encima de todo */
+    display: flex;
+    flex-direction: column; /* Iconos uno encima del otro */
+    gap: 10px;       /* Espacio entre los iconos */
+}
+
+.social-icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icono:hover {
+    transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+
+.social-icono.whatsapp {
+    background-color: #25D366;
+}
+
+.social-icono.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
