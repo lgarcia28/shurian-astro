@@ -179,16 +179,36 @@ h2 {
     display: block;
 }
 
-/* --- ESTILOS PARA LA NUEVA SECCIÓN DE CATÁLOGO --- */
+/* --- ESTILOS PARA LA NUEVA SECCIÓN DE CATÁLOGO (VERSIÓN CARRUSEL) --- */
 #catalogo {
     background-color: #e9eef5;
-    /* Un fondo ligeramente azulado para destacar la sección */
 }
 
 .catalogo-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    /* La base para el scroll horizontal */
+    overflow-x: auto;
+    /* Permite el desbordamiento y muestra la barra de scroll */
     gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    /* Espacio para que la barra de scroll no se pegue a las tarjetas */
+    scroll-snap-type: x mandatory;
+    /* Hace que el scroll "encaje" en cada tarjeta */
+}
+
+/* Estilo para la barra de scroll (opcional pero queda muy bien) */
+.catalogo-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.catalogo-container::-webkit-scrollbar-thumb {
+    background: var(--azul);
+    border-radius: 10px;
+}
+
+.catalogo-container::-webkit-scrollbar-track {
+    background: #d6dde7;
+    border-radius: 10px;
 }
 
 .producto-card {
@@ -196,15 +216,14 @@ h2 {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    /* Para que la imagen respete los bordes redondeados */
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.producto-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    /* --- ¡LÍNEAS CLAVE PARA EL CARRUSEL! --- */
+    flex: 0 0 320px;
+    /* No crece, no se encoge, y tiene un ancho base de 320px */
+    scroll-snap-align: start;
+    /* Asegura que el "encaje" del scroll sea al inicio de la tarjeta */
 }
 
 .producto-card img {
@@ -217,13 +236,15 @@ h2 {
     font-size: 1.4rem;
     color: var(--azul);
     margin: 1rem 1.5rem 0.5rem 1.5rem;
+    flex-grow: 1;
+    /* Empuja el botón y el precio hacia abajo */
 }
 
-.producto-card p {
-    font-size: 1rem;
-    margin: 0 1.5rem 1.5rem 1.5rem;
-    flex-grow: 1;
-    /* Hace que el texto ocupe el espacio disponible */
+.producto-card .producto-precio {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--azul);
+    margin: 0 1.5rem 1rem 1.5rem;
 }
 
 .producto-card .btn-consultar {

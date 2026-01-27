@@ -1,16 +1,15 @@
-// Leemos las variables de entorno que configuramos en Vercel
+// src/lib/tiendanube.js
+
 const storeId = import.meta.env.PUBLIC_TIENDANUBE_STORE_ID;
 const accessToken = import.meta.env.TIENDANUBE_ACCESS_TOKEN;
 
 export async function getProducts() {
-  // Si las llaves no están configuradas, no hacemos nada
   if (!storeId || !accessToken) {
     console.error("Error: Faltan las credenciales de Tiendanube.");
-    return []; 
+    return [];
   }
 
   try {
-    // Hacemos la llamada a la API de Tiendanube
     const response = await fetch(`https://api.tiendanube.com/v1/${storeId}/products`, {
       headers: {
         'Authentication': `bearer ${accessToken}`,
@@ -23,10 +22,18 @@ export async function getProducts() {
       return [];
     }
 
-    const products = await response.json();
-    return products;
+    const allProducts = await response.json();
+
+    // --- ¡NUEVA LÓGICA DE FILTRADO! ---
+    // Filtramos los productos para quedarnos solo con los que tengan el tag "destacados".
+    const featuredProducts = allProducts.filter(product =>
+      product.tags && product.tags.toLowerCase().includes('destacados')
+    );
+
+    return featuredProducts; // Devolvemos solo los productos destacados.
+
   } catch (error) {
     console.error("Error al obtener los productos:", error);
-    return []; 
+    return [];
   }
 }

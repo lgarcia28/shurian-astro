@@ -117,11 +117,8 @@ const products = await getProducts();
                                             ).format(product.variants[0].price)}
                                         </p>
                                     )}
-                                    <a
-                                        href={product.permalink}
-                                        class="btn-consultar"
-                                        target="_blank"
-                                    >
+                                    <a href={`https://wa.me/543417551501?text=${encodeURIComponent(`Hola, me interesa el producto: ${product.name.es}`)}`} class="btn-consultar" target="_blank">Contactar por WhatsApp</a>
+                        
                                         Ver en la tienda
                                     </a>
                                 </div>
