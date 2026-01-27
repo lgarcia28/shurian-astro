@@ -24,7 +24,14 @@ export async function getProducts() {
 
     const allProducts = await response.json();
 
-    return allProducts; // DEVOLVEMOS TODO TEMPORALMENTE PARA PROBAR
+    // --- ¡FILTRO CORREGIDO Y REACTIVADO! ---
+    // Ahora busca la etiqueta "destacados" en plural y minúsculas.
+    const featuredProducts = allProducts.filter(product =>
+      product.tags && product.tags.toLowerCase().includes('destacados')
+    );
+
+    // Devolvemos solo la lista de productos que cumplen con el filtro.
+    return featuredProducts;
 
   } catch (error) {
     console.error("Error al obtener los productos:", error);
