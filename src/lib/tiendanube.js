@@ -24,13 +24,7 @@ export async function getProducts() {
 
     const allProducts = await response.json();
 
-    // --- ¡NUEVA LÓGICA DE FILTRADO! ---
-    // Filtramos los productos para quedarnos solo con los que tengan el tag "destacados".
-    const featuredProducts = allProducts.filter(product =>
-      product.tags && product.tags.toLowerCase().includes('destacados')
-    );
-
-    return featuredProducts; // Devolvemos solo los productos destacados.
+    return allProducts; // DEVOLVEMOS TODO TEMPORALMENTE PARA PROBAR
 
   } catch (error) {
     console.error("Error al obtener los productos:", error);
