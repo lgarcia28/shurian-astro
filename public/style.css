@@ -1,0 +1,346 @@
+:root {
+    --azul: #0c1c3b;
+    --naranja: #ff7a00;
+    --gris-fondo: #f4f4f4;
+    --blanco: #ffffff;
+    --texto-oscuro: #222222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--gris-fondo);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--blanco);
+    color: var(--azul);
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header img.logo {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.navbar a {
+    color: var(--azul);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--naranja);
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--azul);
+}
+
+.hero {
+    background: linear-gradient(rgba(12, 28, 59, 0.8), rgba(12, 28, 59, 0.8)), url('https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=2070&auto=format&fit=crop') center/cover;
+    color: var(--blanco);
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero a.btn-naranja {
+    background: var(--naranja);
+    color: var(--blanco);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.hero a.btn-naranja:hover {
+    background-color: #e66a00;
+}
+
+section {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: var(--azul);
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.servicios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.servicio {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.servicio h3 {
+    color: var(--naranja);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.sobre,
+.contacto {
+    text-align: center;
+}
+
+.sobre p,
+.contacto p {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.1rem;
+}
+
+.sobre img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 15px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contacto a.btn-contacto {
+    display: inline-block;
+    margin: 0.5rem;
+    text-decoration: none;
+    background: var(--naranja);
+    color: var(--blanco);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.contacto a.btn-contacto:hover {
+    background-color: #e66a00;
+}
+
+.map-container {
+    margin-top: 3rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    display: block;
+}
+
+/* --- ESTILOS PARA LA NUEVA SECCIÓN DE CATÁLOGO --- */
+#catalogo {
+    background-color: #e9eef5;
+    /* Un fondo ligeramente azulado para destacar la sección */
+}
+
+.catalogo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.producto-card {
+    background: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    /* Para que la imagen respete los bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.producto-card h3 {
+    font-size: 1.4rem;
+    color: var(--azul);
+    margin: 1rem 1.5rem 0.5rem 1.5rem;
+}
+
+.producto-card p {
+    font-size: 1rem;
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    flex-grow: 1;
+    /* Hace que el texto ocupe el espacio disponible */
+}
+
+.producto-card .btn-consultar {
+    display: block;
+    background: var(--naranja);
+    color: var(--blanco);
+    text-align: center;
+    padding: 0.8rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.producto-card .btn-consultar:hover {
+    background-color: #e66a00;
+}
+
+/* ------------------------------------------------ */
+
+footer {
+    background: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 0;
+    /* Ajustado porque la última sección ahora tiene fondo */
+}
+
+/* --- Estilos para Responsive (Móviles) --- */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 82px;
+        left: -100%;
+        width: 100%;
+        background-color: var(--blanco);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* --- Estilos para Iconos Flotantes de Redes --- */
+.social-flotante {
+    position: fixed;
+    /* Esto hace que flote */
+    bottom: 25px;
+    /* Distancia desde abajo */
+    right: 25px;
+    /* Distancia desde la derecha */
+    z-index: 1000;
+    /* Para que esté por encima de todo */
+    display: flex;
+    flex-direction: column;
+    /* Iconos uno encima del otro */
+    gap: 10px;
+    /* Espacio entre los iconos */
+}
+
+.social-icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icono:hover {
+    transform: scale(1.1);
+    /* Efecto al pasar el mouse */
+}
+
+.social-icono.whatsapp {
+    background-color: #25D366;
+}
+
+.social-icono.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.producto-card .producto-precio {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--azul);
+    margin: 0 1.5rem 1rem 1.5rem;
+}
+
+/* --- Corrección para el Anclaje del Encabezado Fijo --- */
+section[id] {
+    scroll-margin-top: 100px;
+    /* <-- Esta es la línea mágica */
+}
